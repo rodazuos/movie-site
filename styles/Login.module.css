@@ -1,0 +1,84 @@
+.Container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+.ContainerMobile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    padding: var(--spacing-2);
+}
+
+.Background {
+    background-color: var(--color-brand-secondary);
+    opacity: .50;
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+}
+
+.Paper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: var(--spacing-8) var(--spacing-8) 0 var(--spacing-8);
+    opacity: 0.97;
+}
+
+.PaperMobile {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: var(--spacing-2) var(--spacing-2) 0 var(--spacing-2);
+    opacity: 0.98;
+    min-width: 100%;
+    min-height: 100%;
+}
+
+.Separator {
+    height: var(--spacing-8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.SeparatorButton {
+    height: var(--spacing-5);
+}
+
+.Login {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.LoginLoading {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.FooterLogin {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: var(--spacing-8);
+    margin-bottom: var(--spacing-1);
+}
+
+.FooterPart1 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
