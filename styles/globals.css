@@ -1,0 +1,71 @@
+:root {
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-gray: #c5c5c5;
+  --color-gray-light: #f3efef;
+
+  --color-brand-primary: #1976d2;
+  --color-brand-secondary: #bbc1df;
+  --color-brand-third: #e6ddff;
+  --color-brand-3: #4bf820;
+
+  --color-error: #d32f2f;
+  --color-success: #008000;
+
+  --font-size: 14px;
+  --font-size-1: 10px;
+  --font-size-2: 12px;
+  --font-size-3: 14px;
+  --font-size-4: 16px;
+  --font-size-5: 20px;
+  --font-size-6: 24px;
+  --font-size-7: 32px;
+  --font-size-8: 40px;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+  --line-height: 1.4;
+
+  --spacing-0: 0px;
+  --spacing-1: 8px;
+  --spacing-2: 12px;
+  --spacing-3: 16px;
+  --spacing-4: 20px;
+  --spacing-5: 24px;
+  --spacing-6: 28px;
+  --spacing-7: 32px;
+  --spacing-8: 64px;
+  --spacing-9: 128px;
+
+  --size-height-xsmall: 24px;
+  --size-height-small: 32px;
+  --size-height-medium: 40px;
+  --size-height-large: 48px;
+  --size-height-xlarge: 56px;
+
+  --border-radius: 5px;
+
+  --shadow-none: none;
+  --shadow-xsmall: 0 0 4px 0 rgba(0, 0, 0, 0.1);
+  --shadow-small: 0 0 8px 0 rgba(0, 0, 0, 0.1);
+  --shadow-medium: 0 0 16px 0 rgba(0, 0, 0, 0.1);
+  --shadow-large: 0 8px 24px 0 rgba(0, 0, 0, 0.1);
+  --shadow-xlarge: 0 24px 32px 0 rgba(0, 0, 0, 0.1);
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
