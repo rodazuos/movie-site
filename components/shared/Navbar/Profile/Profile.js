@@ -17,6 +17,7 @@ import { useState } from "react";
 import imgProfiler from "../../../../public/profile.png";
 import LogoutIcon from "../../../../public/icons/logout.png";
 import PasswordIcon from "../../../../public/icons/password.png";
+import UserProfilerIcon from "../../../../public/icons/userProfile.png";
 
 const Profile = (props) => {
     const  { openMenu } = props;
@@ -35,6 +36,10 @@ const Profile = (props) => {
         setOpen(true);
     };
     const handleClose = () => setOpen(false);
+
+    const handleViewMyProfile = () => {
+        router.push('/profile');
+    };
 
     const handleChangePassword = async () => {
         if (newPassword === '') {
@@ -90,6 +95,9 @@ const Profile = (props) => {
                                     </Stack>
                                 }
                                 <Stack direction="row" spacing={2}>
+                                    <Stack onClick={handleViewMyProfile} style={{ cursor: "pointer"}}>
+                                        <Image src={UserProfilerIcon.src} width={24} height={24} alt="Meu perfil" />
+                                    </Stack>
                                     <Stack onClick={handleOpen} style={{ cursor: "pointer"}}>
                                         <Image src={PasswordIcon.src} width={24} height={24} alt="Alterar Senha" />
                                     </Stack>
@@ -111,6 +119,9 @@ const Profile = (props) => {
                                         height: 48,
                                     }}
                                 />
+                                <Stack onClick={handleViewMyProfile} style={{ cursor: "pointer"}}>
+                                    <Image src={UserProfilerIcon.src} width={openMenu ? 24 : 32} height={openMenu ? 24 : 32} alt="Meu perfil"  />
+                                </Stack>
                                 <Stack onClick={handleOpen} style={{ cursor: "pointer"}}>
                                     <Image src={PasswordIcon.src} width={openMenu ? 24 : 32} height={openMenu ? 24 : 32} alt="Alterar Senha"  />
                                 </Stack>

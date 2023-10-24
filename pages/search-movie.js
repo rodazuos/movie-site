@@ -1,15 +1,19 @@
-import SearchMovie from '../components/pages/SearchMovie';
+import dynamic from 'next/dynamic';
 import getConfig from 'next/config';
 
 const { movieApiBaseUrl } = getConfig().serverRuntimeConfig;
 
-export async function getServerSideProps({req, res}) {
+const DynamicSearchMovie = dynamic(() => import('../components/pages/SearchMovie'), {
+  ssr: false,
+});
+
+export async function getServerSideProps(ctx) {
     const response = await fetch(`${movieApiBaseUrl}/v1/user/myProfile`, {
         method: "GET",
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${req.cookies.token}`
+            'Authorization': `Bearer ${ctx.req.cookies.token}`
         }
     });
 
@@ -19,6 +23,6 @@ export async function getServerSideProps({req, res}) {
     }
 
     return { props: { userData } }
-  }
+}
 
-export default SearchMovie;
+export default DynamicSearchMovie;

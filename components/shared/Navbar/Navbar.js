@@ -9,6 +9,7 @@ import RightArrowIcon from "../../../public/icons/rightArrow.png";
 import HomeIcon from "../../../public/icons/home.png";
 import ManagerIcon from "../../../public/icons/manager.png";
 import SearchIcon from "../../../public/icons/search.png";
+import UsersIcon from "../../../public/icons/users.png";
 import userSession from "../userSession";
 
 const Navbar = () => {
@@ -21,7 +22,10 @@ const Navbar = () => {
             <Stack spacing={openMenu ? 0.5 : 1.5}>
                 <Menu icon={HomeIcon} text="Home" link="/home" openMenu={openMenu} />
                 {typeAccount === 1 && 
-                    <Menu icon={ManagerIcon} text="Cadastrar Filme" link="/create-movie" openMenu={openMenu} />
+                    <>
+                        <Menu icon={UsersIcon} text="Cadastrar usuários" link="/users" openMenu={openMenu} />
+                        <Menu icon={ManagerIcon} text="Gerenciar Filmes" link="/movie" openMenu={openMenu} />
+                    </>
                 }
                 <Menu icon={SearchIcon} text="Buscar Filmes" link="/search-movie" openMenu={openMenu} />
             </Stack>

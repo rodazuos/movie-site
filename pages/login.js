@@ -1,3 +1,7 @@
-import Login from '../components/pages/Login';
+import dynamic from 'next/dynamic';
 
-export default Login;
+const DynamicLogin = dynamic(() => import('../components/pages/Login'), {
+  ssr: false,
+});
+
+export default DynamicLogin;

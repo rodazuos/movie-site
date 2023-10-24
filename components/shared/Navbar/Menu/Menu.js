@@ -19,7 +19,7 @@ const Menu = (props) => {
             justifyContent={!openMenu ? "center" : "left"}
             padding={0.5}
         >
-            <Image src={icon.src} width={openMenu ? 24 : 32} height={openMenu ? 24 : 32} alt="" />
+            <Image src={icon.src} width={openMenu ? 24 : 32} height={openMenu ? 24 : 32} alt={text} />
             {openMenu && <Typography >{text}</Typography>}
     </Stack>;
 }
