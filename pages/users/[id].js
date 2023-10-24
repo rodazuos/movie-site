@@ -11,7 +11,7 @@ const DynamicCreateUser = dynamic(() => import('../../components/pages/Users/Cre
 export async function getServerSideProps(ctx) {
     let user = {}
     const { id } = ctx.params;
-    if (parseInt(id) !== NaN) {
+    if (!isNaN(id)) {
         const response = await fetch(`${movieApiBaseUrl}/v1/user/${id}`, {
             method: "GET",
             headers: {

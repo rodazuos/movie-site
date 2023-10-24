@@ -29,8 +29,9 @@ const Profile = (props) => {
             body: JSON.stringify(bodyData),
         });
         if (response.status === 200) {
-           return setMessage('Atualizado com sucesso.');
+            return setMessage('Atualizado com sucesso.');
         }
+
         setMessage('Erro ao atualizar perfil.')
     }
         
@@ -46,7 +47,7 @@ const Profile = (props) => {
 
                 <TextField type="input" label='Tipo de Perfil' value={userProfile.typeAccountDescription} />
                 <TextField type="input" label='CPF' value={userProfile.cpf} />
-                <TextField type="input" label='Nome' value={userProfile.name} name='name' onChange={(event) => setUserProfile({...userProfile, name: event.target.value})} />
+                <TextField type="input" label='Nome' value={userProfile.name} name='name' onChange={(event) => setUserProfile({...userProfile, name: event.target.value})} required />
             </Stack>
         </form>
     </Layout>

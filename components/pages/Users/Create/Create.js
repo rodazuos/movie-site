@@ -4,6 +4,7 @@ import Text from "../../../shared/Text";
 import Button from "@mui/material/Button";
 import { useRouter } from "next/router";
 import TextField from "@mui/material/TextField";
+import Switch from '@mui/material/Switch';
 import { useState } from "react";
 import { cpfIsvalid } from "../../../utils/isValid";
 
@@ -24,12 +25,17 @@ const Create = (props) => {
             return setMessage('CPF inválido!');
         }
 
+        if (!userData.isActive) {
+            return handleDeleteUser();
+        }
+
         const form = event.target;
         const formData = new FormData(form);
         const bodyData = {};
         formData.forEach((value, key) => bodyData[key] = value);
+        bodyData.active = userData.isActive
 
-        if (isNew) {
+        if (!isNew) {
             bodyData.id = id;
         }
         
@@ -50,6 +56,20 @@ const Create = (props) => {
             return setMessage('Usuário já cadastrado.');
         }
         setMessage(`Erro ao ${isNew ? 'criar' : 'atualizar'} usuário.`)
+    }
+
+    const handleDeleteUser = async () => {
+        const response = await fetch(`/api/user?id=${id}`, {
+            method: 'DELETE',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        });
+        if (response.status === 200) {
+            return router.push('/users');
+        }
+        setMessage('Erro ao inativar usuário.');
     }
 
     return <form method="POST" onSubmit={handleUpsert}>
@@ -89,6 +109,14 @@ const Create = (props) => {
                         required
                     />
                     <TextField type="input" label='Nome' name="name" size="small" value={userData.name} onChange={event => setUserData({ ...userData, name: event.target.value }) } required />
+                    <Stack direction="row" spacing={2} alignItems="center">
+                        <Text size="medium" color="primary">Ativo</Text>
+                        <Switch
+                            checked={userData.isActive}
+                            onChange={event => setUserData({ ...userData, isActive: event.target.checked }) }
+                            inputProps={{ 'aria-label': 'controlled' }}
+                        />
+                    </Stack>
                 </Stack>
             </Stack>
 

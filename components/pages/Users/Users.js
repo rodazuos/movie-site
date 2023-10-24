@@ -36,7 +36,7 @@ const Users = () => {
         const result = await response.json();
         setData(result)
     };
-    
+  
     useEffect(() => {
         handleChangePage();
     }, []);

@@ -8,9 +8,14 @@ export default async function handler(req, res) {
 
   let url = null
   if (req.method === 'PUT') {
-    url = `${movieApiBaseUrl}/v1/user/${data.id}`
+    url = `${movieApiBaseUrl}/v1/user/${data.id}`;
+  } else if (req.method === 'POST') {
+    url = `${movieApiBaseUrl}/v1/user`;
+  } else if (req.method === 'DELETE') {
+    const { id } = req.query;
+    url = `${movieApiBaseUrl}/v1/user/${id}`;
   } else {
-    url = `${movieApiBaseUrl}/v1/user`
+    return res.status(500).json({});
   }
     
   const response = await fetch(url, {
@@ -23,7 +28,7 @@ export default async function handler(req, res) {
     body: JSON.stringify(data)
   });
 
-  if(response.status === 200) {
+  if(response.status === 200 && req.method !== 'DELETE') {
     const result = await response.json();
     return res.status(response.status).json(result);
   }
