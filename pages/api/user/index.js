@@ -5,9 +5,16 @@ const { movieApiBaseUrl } = getConfig().serverRuntimeConfig;
 export default async function handler(req, res) {
   const token = req.cookies.token;
   const data = req.body;
-  
-  const response = await fetch(`${movieApiBaseUrl}/v1/user/${data.id}`, {
-    method: "PUT",
+
+  let url = null
+  if (req.method === 'PUT') {
+    url = `${movieApiBaseUrl}/v1/user/${data.id}`
+  } else {
+    url = `${movieApiBaseUrl}/v1/user`
+  }
+    
+  const response = await fetch(url, {
+    method: req.method,
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
@@ -16,7 +23,10 @@ export default async function handler(req, res) {
     body: JSON.stringify(data)
   });
 
-  const result = await response.json();
+  if(response.status === 200) {
+    const result = await response.json();
+    return res.status(response.status).json(result);
+  }
 
-  res.status(response.status).json(result);
+  return res.status(response.status).json({});
 }

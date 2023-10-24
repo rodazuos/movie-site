@@ -84,7 +84,7 @@ const Users = () => {
             <Stack display='flex' direction='row' justifyContent='space-between'>
                 <Stack direction="row" spacing={4} display="flex" alignItems="center">
                     <Text size="medium" color="primary">Cadastro de Usuários</Text>
-                    <Button variant="contained" onClick={() => router.push('/movie/new')}>Novo</Button>
+                    <Button variant="contained" onClick={() => router.push('/users/new')}>Novo</Button>
                 </Stack>
                 <Stack direction="row" spacing={4} display="flex" alignItems="center">
                     <TextField type="input" label='Busca por Nome' name="search-name-user" value={searchName} onChange={(e) => setSearchName(e.target.value)} />
