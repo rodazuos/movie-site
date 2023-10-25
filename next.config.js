@@ -4,7 +4,6 @@ module.exports = {
     movieApiBaseUrl: "http://localhost:3001",
   },
   serverRuntimeConfig: {
-    authJWTKey: 123456789,
     movieSiteBaseUrl: "http://localhost:3000",
     movieApiBaseUrl: "http://localhost:3001",
   },
