@@ -33,7 +33,7 @@ const Create = (props) => {
         const formData = new FormData(form);
         const bodyData = {};
         formData.forEach((value, key) => bodyData[key] = value);
-        bodyData.active = userData.isActive
+        bodyData.active = userData.isActive;
 
         if (!isNew) {
             bodyData.id = id;

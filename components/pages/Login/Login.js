@@ -87,6 +87,9 @@ const Login = () => {
                                         required
                                         error={errorAuth}
                                         onChange={() => { setErrorAuth(false)}}
+                                        inputProps={{
+                                            maxLength: 11,
+                                        }}
                                     />
                                     <TextField
                                         id="password"
