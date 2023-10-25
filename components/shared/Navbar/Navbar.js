@@ -27,7 +27,6 @@ const Navbar = () => {
                         <Menu icon={ManagerIcon} text="Gerenciar Filmes" link="/movie" openMenu={openMenu} />
                     </>
                 }
-                <Menu icon={SearchIcon} text="Buscar Filmes" link="/search-movie" openMenu={openMenu} />
             </Stack>
             <Divider />
             <Stack
