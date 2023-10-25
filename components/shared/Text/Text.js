@@ -1,7 +1,7 @@
 import classNames from "classnames";
-import upperCaseFisrChar from '../../utils/upperCaseFirstChar';
+import upperCaseFisrChar from "../../utils/upperCaseFirstChar";
 import styles from "../../../styles/Text.module.css";
-import textFormatter from '../../../styles/TextFormatter.module.css';
+import textFormatter from "../../../styles/TextFormatter.module.css";
 
 const Text = (props) => {
   const {
@@ -14,12 +14,16 @@ const Text = (props) => {
     ...rest
   } = props;
 
-  const className = classNames(styles.Text, {
+  const className = classNames(
+    styles.Text,
+    {
       [styles[color]]: color,
       [styles[size]]: size,
       [textFormatter[`align${upperCaseFisrChar(align)}`]]: align,
       [styles[weight]]: weight,
-  }, classNameProp);
+    },
+    classNameProp
+  );
 
   return (
     <p className={className} {...rest}>

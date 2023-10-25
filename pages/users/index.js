@@ -1,7 +1,6 @@
+import dynamic from "next/dynamic";
 
-import dynamic from 'next/dynamic';
-
-const DynamicMovie = dynamic(() => import('../../components/pages/Users'), {
+const DynamicMovie = dynamic(() => import("../../components/pages/Users"), {
   ssr: false,
 });
 

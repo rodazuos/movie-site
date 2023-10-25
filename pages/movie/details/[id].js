@@ -3,14 +3,18 @@ import getConfig from "next/config";
 
 const { movieApiBaseUrl } = getConfig().serverRuntimeConfig;
 
-const DynamicProfile = dynamic(() => import("../components/pages/Profile"), {
-  ssr: false,
-});
+const DynamicDetailsMovie = dynamic(
+  () => import("../../../components/pages/Movie/Details"),
+  {
+    ssr: false,
+  }
+);
 
 export async function getServerSideProps(ctx) {
-  let userData = {};
+  let dataMovie = {};
+  const { id } = ctx.params;
 
-  const response = await fetch(`${movieApiBaseUrl}/v1/user/myProfile`, {
+  const response = await fetch(`${movieApiBaseUrl}/v1/movie/${id}?full=true`, {
     method: "GET",
     headers: {
       Accept: "application/json",
@@ -19,10 +23,10 @@ export async function getServerSideProps(ctx) {
     },
   });
   if (response.status === 200) {
-    userData = await response.json();
+    dataMovie = await response.json();
   }
 
-  return { props: { userData } };
+  return { props: { dataMovie } };
 }
 
-export default DynamicProfile;
+export default DynamicDetailsMovie;

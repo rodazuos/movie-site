@@ -7,8 +7,8 @@ const Layout = (props) => {
 
   return (
     <layout className={styles.Layout}>
-        <Navbar />
-        <MainContent>{children}</MainContent>
+      <Navbar />
+      <MainContent>{children}</MainContent>
     </layout>
   );
 };

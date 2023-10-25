@@ -1,6 +1,6 @@
-import dynamic from 'next/dynamic';
+import dynamic from "next/dynamic";
 
-const DynamicLogin = dynamic(() => import('../components/pages/Login'), {
+const DynamicLogin = dynamic(() => import("../components/pages/Login"), {
   ssr: false,
 });
 
